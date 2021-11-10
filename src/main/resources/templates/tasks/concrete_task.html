@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Current Task</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+</br>
+<div class ="container">
+    <div class = "row">
+        <div class = "col-lg-4">
+            <a th:href = "@{/tasks/edit/{id} (id=${challenge.getId()})}" class = "btn btn-primary btn-sm mb-3">Update</a>
+            <a th:href = "@{/tasks}" class = "btn btn-primary btn-sm mb-3">Go to Tasks</a>
+            <a th:href="@{/logout}" class= "btn btn-primary btn-sm mb-3">Logout</a>
+        </div>
+    </div>
+
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Name </th>
+            <th> Value </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:object="${challenge}">
+            <td>Name</td>
+            <td th:text = "${challenge.getNameOfTask()}"></td>
+        </tr>
+
+        <tr th:object="${challenge}">
+            <td>Priority</td>
+            <td th:text = "${challenge.getPriority()}"></td>
+        </tr>
+
+        <tr th:object="${challenge}">
+            <td>Status</td>
+            <td th:text = "${challenge.getStatus()}"></td>
+        </tr>
+
+        <tr th:object="${challenge}">
+            <td>Description</td>
+            <td th:text = "${challenge.getDescription()}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>
